@@ -1,0 +1,99 @@
+# ********
+# Health check (unauthenticated)
+# ********
+# GET http://localhost:11100/
+
+# ********
+# Model catalog (TypeSafe SDK: client.models.list()) — SemIf-backed descriptions
+# ********
+# GET http://localhost:11100/v1/models
+
+# ********
+# POST /v1/systemone
+# ********
+POST http://localhost:11100/v1/systemone
+Content-Type: application/json
+
+# **
+# noul
+# **
+# {
+#   "state": "Help! My payouts have been failing for 3 days.",
+#   "model": "jev-latest",
+#   "questions": {
+#     "is_urgent": {
+#       "type": "noul",
+#       "instructions": "Does this convey urgency?",
+#       "criteria": {
+#         "true": "Explicitly time-sensitive",
+#         "false": "No urgency expressed"
+#       }
+#     }
+#   }
+# }
+
+# **
+# choice
+# **
+# {
+#   "state": "Help! My payouts have been failing for 3 days.",
+#   "model": "jev-latest",
+#   "questions": {
+#     "department": {
+#       "type": "choice",
+#       "instructions": "Which team should handle this?",
+#       "criteria": {
+#         "billing": "Payments, invoicing, refunds",
+#         "technical": "Bugs, outages, integrations",
+#         "sales": "Pricing, upgrades, new accounts"
+#       }
+#     }
+#   }
+# }
+
+# **
+# score
+# **
+# {
+#   "state": "Help! My payouts have been failing for 3 days.",
+#   "model": "jev-latest",
+#   "questions": {
+#     "frustration": {
+#       "type": "score",
+#       "instructions": "How frustrated is the customer?",
+#       "criteria": ["Calm", "Frustrated", "Very angry"]
+#     }
+#   }
+# }
+
+# **
+# mixed
+# **
+{
+  "state": "Help! My payouts have been failing for 3 days.",
+  "model": "jev-latest",
+  "questions": {
+    "frustration": {
+      "type": "score",
+      "instructions": "How frustrated is the customer?",
+      "criteria": ["Calm", "Frustrated", "Very angry"]
+    },
+    "department": {
+      "type": "choice",
+      "instructions": "Which team should handle this?",
+      "criteria": {
+        "billing": "Payments, invoicing, refunds",
+        "technical": "Bugs, outages, integrations",
+        "sales": "Pricing, upgrades, new accounts"
+      }
+    },
+    "is_urgent": {
+      "type": "noul",
+      "instructions": "Does this convey urgency?",
+      "criteria": {
+        "true": "Explicitly time-sensitive",
+        "false": "No urgency expressed"
+      }
+    }
+  }
+}
