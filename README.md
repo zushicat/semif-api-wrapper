@@ -1,7 +1,7 @@
-# semif-api-jev-schema
+# Semif Api Wrapper
 *IMPORTANT*    
 This is an Api wrapper for [TheoLeeCJ/SemIf](https://github.com/TheoLeeCJ/SemIf) using [Typesafe Ai's Jev Api schema](https://docs.typesafe.ai/api).
-The code in [/src/semif_phase1/](/src/semif_phase1/) is the Python code from the original project (as of Sept. 22, 2026).
+The code in [/src/semif_phase1/](/src/semif_phase1/) is the Python code from the original SemIf project (as of Sept. 22, 2026).
 
 #
 A local, Jev-compatible decision API: clients send a **Jev request** and get a
